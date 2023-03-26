@@ -508,6 +508,38 @@ data <-  data.frame(
 kruskal.test(rank ~ sex, data = data)
 ```
 
+## Spearman rank correlation
+Use Spearman rank correlation to test the association between two ranked variables, or one ranked variable and one measurement variable. You can also use Spearman rank correlation instead of linear regression/correlation for two measurement variables if you're worried about non-normality, but this is not usually necessary.
+
+### Example
+| Monkey name | Dominance rank | Eggs per gram | Eggs per gram (rank) |
+|:-------------:|:----------------:|:--------------:|:---------------------:|
+| Erroll      | 1              | 5777         | 1                   |
+| Milo        | 2              | 4225         | 2                   |
+| Fraiser     | 3              | 2674         | 3                   |
+| Fergus      | 4              | 1249         | 4                   |
+| Kabul       | 5              | 749          | 6                   |
+| Hope        | 6              | 870          | 5                   |
+
+H0: There is no covariance between the ranks. <br>
+H1: There is covariance between the ranks.
+
+### Implementation in R
+```r
+library(Hmisc)
+
+monkeys <- data.frame(
+  MonkeyName = c("Erroll", "Milo", "Fraiser", "Fergus", "Kabul", "Hope"),
+  DominanceRank = c(1, 2, 3, 4, 5, 6),
+  EggsPerGram = c(5777, 4225, 2674, 1249, 749, 870),
+  EggsPerGramRank = c(1, 2, 3, 4, 6, 5)
+)
+
+rcorr(monkeys$DominanceRank, 
+      monkeys$EggsPerGramRank, 
+      type = "spearman")
+```
+
 # Homoscedasticity and heteroscedasticity
 ## Bartlett’s test
 Use Bartlett's test if you have one measurement variable and one nominal variable and want to test if the variances of the measuremants variable are the same amoung the different groups. 
@@ -553,3 +585,113 @@ H1: The variances of the measurement variable are not the same among the differe
 ```r
 bartlett.test(weight ~ group, data = PlantGrowth)
 ```
+
+# Correlation and regression
+Use linear regression or correlation when you want to know whether one measurement variable is associated with another measurement variable; you want to measure the strength of the association (r2); or you want an equation that describes the relationship and can be used to predict unknown values.
+
+## Linear regression
+### Example
+refer to the iris dataset in R.
+
+### Implmentation in R
+```r
+iris.lm <- lm(formula = iris$Petal.Length ~ iris$Petal.Width)
+
+cat(paste('Slope:', iris.lm$coefficients[2], '\nIntercept:', iris.lm$coefficients[1]))
+
+plot(x = iris$Petal.Width, 
+     y = iris$Petal.Length, 
+     col =  color + 1, 
+     pch = 19,
+     main = 'Petal width vs. length')
+
+abline(iris.lm, col = 'orange')
+
+# Alternative way of plotting the trend line:
+# abline(iris.lm$coefficients[1], iris.lm$coefficients[2], col = 'green')
+
+par(mfrow = c(2,2))
+plot(iris.lm)
+```
+
+## Correlation 
+### Example
+refer to the iris dataset in R. 
+
+H0: There is no significant correlation.<br>
+H1: There is a significant correlation.
+
+### Implementation in R
+```r
+# Pearson coefficient
+cor(iris$Petal.Length, iris$Petal.Width, 
+    method = "pearson")
+
+# Alternative (will give you different output but same results)
+
+cor(iris[,c("Petal.Length","Petal.Width")], 
+    method = "pearson")
+
+# Spearman coefficient
+cor(iris$Petal.Length, iris$Petal.Width, 
+    method = "spearman")
+
+# Kendall coefficient
+cor(iris$Petal.Length, iris$Petal.Width, 
+    method = "kendall")
+
+# Test if the coefficient is significant
+cor.test(iris$Petal.Length, iris$Petal.Width, 
+         method = "pearson")
+```
+
+# ANCOVA
+Use analysis of covariance (ancova) when you want to compare two or more regression lines to each other; ancova will tell you whether the regression lines are different from each other in either slope or intercept. For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/ancova.html).
+
+### Example
+|O. exclamationis|O. exclamationis|O. niveus|O. niveus|
+|:---:|:---:|:---:|:---:|
+| Temperature (C°) | Pulses per second | Temperature (C°) | Pulses per second |
+|------------------|-------------------|------------------|-------------------|
+| 20.8             | 67.9              | 17.2             | 44.3              |
+| 20.8             | 65.1              | 18.3             | 47.2              |
+| 24.0             | 77.3              | 18.3             | 47.6              |
+| 24.0             | 78.7              | 18.3             | 49.6              |
+| 24.0             | 79.4              | 18.9             | 50.3              |
+| 24.0             | 80.4              | 18.9             | 51.8              |
+| 26.2             | 85.8              | 20.4             | 60.0              |
+| 26.2             | 86.6              | 21.0             | 58.5              |
+| 26.2             | 87.5              | 21.0             | 58.9              |
+| 26.2             | 89.1              | 22.1             | 60.7              |
+| 28.4             | 98.6              | 23.5             | 69.8              |
+| 29.0             | 100.8             | 24.2             | 70.9              |
+| 30.4             | 99.3              | 25.9             | 76.2              |
+| 30.4             | 101.7             | 26.5             | 76.1              |
+|                  |                   | 26.5             | 77.0              |
+|                  |                   | 26.5             | 77.7              |
+|                  |                   | 28.6             | 84.7              |
+
+
+H0: The slopes of the regression lines are equal.<br>
+H1: The slopes of the regression lines are not equal.
+
+### Implementation in R
+```r
+TempExcla <- c(20.8, 20.8, 24.0, 24.0, 24.0, 24.0, 26.2, 26.2, 26.2, 26.2, 28.4, 29.0, 30.4, 30.4)
+PulsesExcla <- c(67.9, 65.1, 77.3, 78.7, 79.4, 80.4, 85.8, 86.6, 87.5, 89.1, 98.6, 100.8, 99.3, 101.7)
+TempNive <- c(17.2, 18.3, 18.3, 18.3, 18.9, 18.9, 20.4, 21.0, 21.0, 22.1, 23.5, 24.2, 25.9, 26.5, 26.5, 26.5, 28.6)
+PulsesNive <- c(44.3, 47.2, 47.6, 49.6, 50.3, 51.8, 60.0, 58.5, 58.9, 60.7, 69.8, 70.9, 76.2, 76.1, 77.0, 77.7, 84.7)
+
+crickets <- data.frame(
+  Temp = c(TempExcla, TempNive),
+  Pulses = c(PulsesExcla, PulsesNive),
+  Species = c(rep('O. exclamationis', 14), rep('O. niveus', 17))
+)
+
+crickets.ml <- aov(Pulses ~ Temp + Species + Temp:Species,
+                   data = crickets)
+
+summary(crickets.ml)
+```
+
+To test whether the slopes of the two groups (O. exclamationis and O. niveus) are significantly different, one can examine the p-value associated with the interaction term Temp:Species in the model summary. If the p-value is less than the significance level (usually 0.05), then the interaction term is considered significant, indicating that the slopes of the two groups are different. If the p-value is greater than the significance level, then the slopes of the two groups are considered not significantly different.
