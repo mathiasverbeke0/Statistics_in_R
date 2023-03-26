@@ -9,7 +9,7 @@ The most common use of Fisher's exact test is for 2×2 tables. Fisher's exact te
 |Drug X|45|55|
 |Drug Y|19|89|
 
-H0: The two variables are independent.
+H0: The two variables are independent.<br>
 H1: The two variables are not independent.
 
 ### Implementation in R
@@ -32,7 +32,7 @@ Use the chi-square test of independence when you have two nominal variables and 
 |Thigh|4758|30|
 |Arm|8840|76|
 
-H0: The two variables are independent.
+H0: The two variables are independent.<br>
 H1: The two variables are not independent.
 
 ### Implementation in R
@@ -55,7 +55,7 @@ Use the G–test of independence when you have two nominal variables and you wan
 |Thigh|4758|30|
 |Arm|8840|76|
 
-H0: The two variables are independent.
+H0: The two variables are independent.<br>
 H1: The two variables are not independent.
 
 ### Implementation in R
@@ -86,7 +86,7 @@ Use the Cochran–Mantel–Haenszel test when you have data from 2×2 tables tha
 |           | non-94 | 55     | 48        |
 
 
-H0: The two variables (allele and water) are independent.
+H0: The two variables (allele and water) are independent.<br>
 H1: The two variables (allele and water) are not independent.
 
 ### Implementation in R
@@ -117,7 +117,7 @@ You use the exact test of goodness-of-fit when you have one nominal variable, yo
 |Observed|140|106|
 |Expected frequency|0.5|0.5|
 
-H0: The observed data follow the hypothesized distribution.
+H0: The observed data follow the hypothesized distribution.<br>
 H1: The observed data do not follow the hypothesized distribution.
 
 ### Implementation in R
@@ -172,12 +172,12 @@ Use Student's t–test for one sample when you have one measurement variable and
 We have a sample of test scores with 20 observations: 71, 73, 72, 68, 70, 69, 72, 70, 74, 70, 71, 75, 70, 69, 72, 73, 70, 72, 71 and 70. 
 #### Test 1: Two-sided
 We want to test whether the mean test score is significantly different from 70.
-H0: μ1 = 70
+H0: μ1 = 70<br>
 H1: μ1 ≠ 70
 
 #### Test 2: Single-sided
 Now we want to test whether the mean test score is significantly smaller than 70.
-H0: μ1 ≥ 70
+H0: μ1 ≥ 70<br>
 H1: μ1 < 70
 
 ### Implementation in R
@@ -208,18 +208,18 @@ Use Student's t–test for two samples when you have one measurement variable an
 
 #### Test 1: Two-sided
 We want to test whether or not the means of the two groups are the same.
-H0: μT = μC
+H0: μT = μC<br>
 H1: μT ≠ μC
 
 #### Test 2: Single-sided
 Now we want to test if the mean of the treatment group is greater than the mean of the control group.
-H0: μT ≤ μC
+H0: μT ≤ μC<br>
 H1: μT > μC
 
 ### Implementation in R
 #### Variance check
 First check whether the variances are equal or not with the F-test.
-H0: σ_1^2 = σ_2^2
+H0: σ_1^2 = σ_2^2<br>
 H1: σ_1^2 ≠ σ_2^2
 
 ```r
@@ -268,7 +268,7 @@ Use the paired t–test when you have one measurement variable and two nominal v
 | O    | 0.055           | -0.128          |
 | P    | 0.058           | -0.182          |
 
-H0: μ1 = μ2
+H0: μ1 = μ2<br>
 H1: μ1 ≠ μ2
 
 NOTE: You can also do single-sided tests here. It is performed in the same way as mentioned in the Two-sample T-test section. 
@@ -368,7 +368,7 @@ Use one-way anova when you have one nominal variable and one measurement variabl
 |     5.80 | trt2  |
 |     5.26 | trt2  |
 
-H0: The means of the measurement variable are the same among the different groups.
+H0: The means of the measurement variable are the same among the different groups.<br>
 H1: The means of the measurement variable are not the same among the different groups.
 
 ### Implementation in R
@@ -495,7 +495,7 @@ Use the Kruskal–Wallis test when you have one nominal variable and one ranked 
 |Emy | Female | 26|
 |Pisola | Female | 27|
 
-H0: The mean ranks of the groups are the same (i.e. there is no correlation between the rank and the sex).
+H0: The mean ranks of the groups are the same (i.e. there is no correlation between the rank and the sex).<br>
 H1: The mean ranks of the groups are not the same (i.e. there is a correlation between the rank and the sex). 
 ### Implementation in R
 ```r
@@ -546,7 +546,7 @@ Use Bartlett's test if you have one measurement variable and one nominal variabl
 |     5.80 | trt2  |
 |     5.26 | trt2  |
 
-H0: The variances of the measurement variable are the same among the different groups.
+H0: The variances of the measurement variable are the same among the different groups.<br>
 H1: The variances of the measurement variable are not the same among the different groups.
 
 ### Implementation in R
