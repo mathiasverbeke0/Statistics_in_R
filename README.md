@@ -652,7 +652,6 @@ Use analysis of covariance (ancova) when you want to compare two or more regress
 |O. exclamationis|O. exclamationis|O. niveus|O. niveus|
 |:---:|:---:|:---:|:---:|
 | Temperature (C°) | Pulses per second | Temperature (C°) | Pulses per second |
-|------------------|-------------------|------------------|-------------------|
 | 20.8             | 67.9              | 17.2             | 44.3              |
 | 20.8             | 65.1              | 18.3             | 47.2              |
 | 24.0             | 77.3              | 18.3             | 47.6              |
