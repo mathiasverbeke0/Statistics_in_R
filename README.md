@@ -24,7 +24,7 @@ result$p.value
 ```
 
 ## Chi-square test of independence
-Use the chi-square test of independence when you have two nominal variables and you want to see whether the proportions of one variable are different for different values of the other variable. Use it when the sample size is large. For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/fishers.html).
+Use the chi-square test of independence when you have two nominal variables and you want to see whether the proportions of one variable are different for different values of the other variable. Use it when the sample size is large. For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/chiind.html).
 
 ### Example
 || No severe reaction | Severe reaction |
@@ -109,7 +109,7 @@ result$p.value
 
 # Tests of goodness-of-fit
 ## Exact test of goodness-of-fit
-You use the exact test of goodness-of-fit when you have one nominal variable, you want to see whether the number of observations in each category fits a theoretical expectation, and the sample size is small. The most common use is a nominal variable with only two values (such as male or female, left or right, green or yellow), in which case the test may be called the exact binomial test. For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/fishers.html).
+You use the exact test of goodness-of-fit when you have one nominal variable, you want to see whether the number of observations in each category fits a theoretical expectation, and the sample size is small. The most common use is a nominal variable with only two values (such as male or female, left or right, green or yellow), in which case the test may be called the exact binomial test. For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/exactgof.html).
 
 ### Example
 || Homotypic matings | Heterotypic matings |
@@ -166,7 +166,7 @@ GTest(c(70,79,3,4), p = c(0.54,0.40,0.05,0.01))
 
 # T-tests
 ## One-sample T-test
-Use Student's t–test for one sample when you have one measurement variable and a theoretical expectation of what the mean should be under the null hypothesis. It tests whether the mean of the measurement variable is different from the null expectation. For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/fishers.html).
+Use Student's t–test for one sample when you have one measurement variable and a theoretical expectation of what the mean should be under the null hypothesis. It tests whether the mean of the measurement variable is different from the null expectation. For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/onesamplettest.html).
 
 ### Example
 We have a sample of test scores with 20 observations: 71, 73, 72, 68, 70, 69, 72, 70, 74, 70, 71, 75, 70, 69, 72, 73, 70, 72, 71 and 70. 
@@ -195,7 +195,7 @@ result$p.value
 ```
 
 ## Two-sample T-test
-Use Student's t–test for two samples when you have one measurement variable and one nominal variable, and the nominal variable has only two values. It tests whether the means of the measurement variable are different in the two groups. For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/fishers.html).
+Use Student's t–test for two samples when you have one measurement variable and one nominal variable, and the nominal variable has only two values. It tests whether the means of the measurement variable are different in the two groups. For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/twosamplettest.html).
 
 ### Example
 | Treatment | Control |
@@ -246,7 +246,7 @@ result$p.value
 ```
 
 ## Paired T-test
-Use the paired t–test when you have one measurement variable and two nominal variables, one of the nominal variables has only two values, and you only have one observation for each combination of the nominal variables; in other words, you have multiple pairs of observations. It tests whether the mean difference in the pairs is different from 0. For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/fishers.html).
+Use the paired t–test when you have one measurement variable and two nominal variables, one of the nominal variables has only two values, and you only have one observation for each combination of the nominal variables; in other words, you have multiple pairs of observations. It tests whether the mean difference in the pairs is different from 0. For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/pairedttest.html).
 
 ### Example
 | Bird | Yellowness index (typical feather)| Yellowness index (odd feather)|
@@ -332,7 +332,7 @@ wilcox.test(August, November, paired = TRUE)
 
 # ANOVA
 ## One-way ANOVA
-Use one-way anova when you have one nominal variable and one measurement variable; the nominal variable divides the measurements into two or more groups. It tests whether the means of the measurement variable are the same for the different groups. For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/fishers.html).
+Use one-way anova when you have one nominal variable and one measurement variable; the nominal variable divides the measurements into two or more groups. It tests whether the means of the measurement variable are the same for the different groups. For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/onewayanova.html).
 
 ### Example
 |   Weight | Group |
@@ -389,7 +389,7 @@ TukeyHSD(result)
 ```
 
 ## Two-way ANOVA
-Use two-way anova when you have one measurement variable and two nominal variables, and each value of one nominal variable is found in combination with each value of the other nominal variable. It tests three null hypotheses: that the means of the measurement variable are equal for different values of the first nominal variable; that the means are equal for different values of the second nominal variable; and that there is no interaction (the effects of one nominal variable don't depend on the value of the other nominal variable). For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/fishers.html).
+Use two-way anova when you have one measurement variable and two nominal variables, and each value of one nominal variable is found in combination with each value of the other nominal variable. It tests three null hypotheses: that the means of the measurement variable are equal for different values of the first nominal variable; that the means are equal for different values of the second nominal variable; and that there is no interaction (the effects of one nominal variable don't depend on the value of the other nominal variable). For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/twowayanova.html).
 
 ### Example
 | Diet    | Temperature | Weight gain |
@@ -440,7 +440,7 @@ anova(df.model)
 ```
 
 ## Nested ANOVA
-Use nested anova when you have one measurement variable and more than one nominal variable, and the nominal variables are nested (form subgroups within groups). It tests whether there is significant variation in means among groups, among subgroups within groups, etc. For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/fishers.html).
+Use nested anova when you have one measurement variable and more than one nominal variable, and the nominal variables are nested (form subgroups within groups). It tests whether there is significant variation in means among groups, among subgroups within groups, etc. For more information, see [the handbook of biological statistics](http://www.biostathandbook.com/nestedanova.html).
 
 
 |Technician|Brad	|Brad	|Brad	| Janet| Janet| Janet|
