@@ -268,8 +268,8 @@ Use the paired t–test when you have one measurement variable and two nominal v
 | O    | 0.055           | -0.128          |
 | P    | 0.058           | -0.182          |
 
-H0: μ1 = μ2<br>
-H1: μ1 ≠ μ2
+H0: The mean difference between pairs is zero.<br>
+H1: The mean difference between pairs is not zero.
 
 NOTE: You can also do single-sided tests here. It is performed in the same way as mentioned in the Two-sample T-test section. 
 
