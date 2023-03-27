@@ -171,12 +171,12 @@ Use Student's t–test for one sample when you have one measurement variable and
 ### Example
 We have a sample of test scores with 20 observations: 71, 73, 72, 68, 70, 69, 72, 70, 74, 70, 71, 75, 70, 69, 72, 73, 70, 72, 71 and 70. 
 #### Test 1: Two-sided
-We want to test whether the mean test score is significantly different from 70.
+We want to test whether the mean test score is significantly different from 70.<br>
 H0: μ1 = 70<br>
 H1: μ1 ≠ 70
 
 #### Test 2: Single-sided
-Now we want to test whether the mean test score is significantly smaller than 70.
+Now we want to test whether the mean test score is significantly smaller than 70.<br>
 H0: μ1 ≥ 70<br>
 H1: μ1 < 70
 
@@ -301,6 +301,9 @@ Use the Wilcoxon signed-rank test when you'd like to use the paired t–test, bu
 | Trichobel      | 7.9    | 19.9     | 12.0           |
 | Gaver          | 8.1    | 20.4     | 12.3           |
 | Wolterson      | 13.4   | 36.8     | 23.4           |
+
+H0: The median difference between pairs of observations is zero.
+H1: The median difference between pairs of observations is not zero.
 
 ### Implementation in R
 ```r
