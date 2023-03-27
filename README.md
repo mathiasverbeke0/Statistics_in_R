@@ -302,7 +302,7 @@ Use the Wilcoxon signed-rank test when you'd like to use the paired t–test, bu
 | Gaver          | 8.1    | 20.4     | 12.3           |
 | Wolterson      | 13.4   | 36.8     | 23.4           |
 
-H0: The median difference between pairs of observations is zero.
+H0: The median difference between pairs of observations is zero. <br>
 H1: The median difference between pairs of observations is not zero.
 
 ### Implementation in R
