@@ -159,7 +159,7 @@ Refer to the datasets in the Chi Square test of goodness-of-fit
 GTest(c(1752,1895))
 ```
 
-#### Test2
+#### Test 2
 ```r
 GTest(c(70,79,3,4), p = c(0.54,0.40,0.05,0.01))
 ```
@@ -185,7 +185,7 @@ H1: μ1 < 70
 ```r
 scores <- c(71, 73, 72, 68, 70, 69, 72, 70, 74, 70, 71, 75, 70, 69, 72, 73, 70, 72, 71, 70)
 result <- t.test(scores, mu = 70)
-restult$p.value
+result$p.value
 ```
 #### Test 2
 ```r 
